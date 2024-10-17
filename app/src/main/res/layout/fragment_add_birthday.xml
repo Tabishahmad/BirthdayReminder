@@ -1,0 +1,58 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <!-- ViewModel variable for data binding -->
+        <variable
+            name="viewModel"
+            type="com.sample.reminder.viewmodel.BirthdayViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- EditText for entering the name -->
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Name"
+            android:inputType="textPersonName"
+            android:text="@={viewModel.name}" />
+
+        <!-- DatePicker for selecting the date -->
+        <DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner" />
+
+        <!-- TimePicker for selecting the time -->
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner"/>
+
+        <!-- Spinner for selecting notification days before the birthday -->
+        <Spinner
+            android:id="@+id/spinnerNotifyDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/notify_days_array" />
+
+        <!-- Save Button to save the birthday -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+</layout>

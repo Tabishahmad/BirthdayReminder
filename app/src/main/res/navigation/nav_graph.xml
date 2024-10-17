@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/birthdayListFragment">
+
+    <fragment
+        android:id="@+id/birthdayListFragment"
+        android:name="com.sample.reminder.ui.list.BirthdayListFragment"
+        tools:layout="@layout/fragment_birthday_list">
+
+        <!-- Define the action from BirthdayListFragment to AddBirthdayFragment -->
+        <action
+            android:id="@+id/action_birthdayListFragment_to_addBirthdayFragment"
+            app:destination="@id/addBirthdayFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addBirthdayFragment"
+        android:name="com.sample.reminder.ui.add.AddBirthdayFragment"
+        tools:layout="@layout/fragment_add_birthday" />
+</navigation>

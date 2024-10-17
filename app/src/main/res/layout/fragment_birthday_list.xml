@@ -1,0 +1,34 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <!-- Declare ViewModel to be used for data binding -->
+        <variable
+            name="viewModel"
+            type="com.sample.reminder.viewmodel.BirthdayViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- RecyclerView for displaying the list of birthdays -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            app:items="@{viewModel.allBirthdays}" /> <!-- Optional: Data-binding can be applied to list items -->
+
+        <!-- Floating Action Button to add a new birthday -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddBirthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:contentDescription="Add Birthday"
+            android:src="@drawable/ic_add"
+            android:onClick="@{() -> viewModel.onFabClick()}" /> <!-- Bind FAB click to ViewModel -->
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
